@@ -1,4 +1,3 @@
-// app.js
 const socket = io();
 
 const app = document.getElementById('app');
@@ -19,20 +18,6 @@ const button = document.createElement('button');
 button.innerText = 'Send';
 inputArea.appendChild(button);
 
-button.addEventListener('click', () => {
-    const message = input.value;
-    socket.emit('message', message);
-    input.value = '';
-});
-
-socket.on('message', (message) => {
-    const messageElement = document.createElement('div');
-    messageElement.innerText = message;
-    chatWindow.appendChild(messageElement);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-});
-
-// app.js (додатковий код)
 button.addEventListener('click', async () => {
     const message = input.value;
     socket.emit('message', message);
@@ -52,4 +37,11 @@ button.addEventListener('click', async () => {
     }
     
     input.value = '';
+});
+
+socket.on('message', (message) => {
+    const messageElement = document.createElement('div');
+    messageElement.innerText = message;
+    chatWindow.appendChild(messageElement);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
 });
