@@ -31,3 +31,25 @@ socket.on('message', (message) => {
     chatWindow.appendChild(messageElement);
     chatWindow.scrollTop = chatWindow.scrollHeight;
 });
+
+// app.js (додатковий код)
+button.addEventListener('click', async () => {
+    const message = input.value;
+    socket.emit('message', message);
+    
+    if (message.startsWith('/order')) {
+        const product = message.slice(7).trim();
+        const order = { product, timestamp: new Date() };
+        
+        const response = await fetch('/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(order)
+        });
+        
+        const result = await response.json();
+        console.log('Order created:', result);
+    }
+    
+    input.value = '';
+});
