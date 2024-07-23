@@ -1,4 +1,38 @@
-//css
-.header{
-  backgroumd-image: linear-gradient(rgba(4,9,30,0.7))
+/*// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}*/
+
+body {
+    background-color: black;
+
+    text-align: center;
+}
+
+
+.galerry{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    /*height: 10px;*/
+
+    /*background-repeat: no-repeat;
+    background-position: center;
+    background-attachment:fixed;
+    background-size: cover;*/
+    
+}
+
+.text{
+    text-align: center;
+    color: azure;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+
+
 }
